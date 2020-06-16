@@ -74,4 +74,20 @@ console.log(main2());
 //running counter, reset after looping back to start
 //if the returned counter is > largest counter you have, replace it
 
-function height()
+function height(BST, counter = 0) {
+  if (!BST) {
+    console.log("End of branch reached!");
+    return counter;
+  }
+
+  const h1 = height(BST.left, counter++);
+  const h2 = height(BST.right, counter++);
+
+  if (h1 > h2) {
+    return h1;
+  } else {
+    return h2;
+  }
+}
+
+console.log(height(main()));
