@@ -114,51 +114,73 @@ function main() {
 
 //7
 
-function findThird(BST, temp = [0, 0, 0]) {
-  //if key is greater than largest, largest = key
-  //if secLargest < largest, secLargest = largest
-  //if thirdLargest < secLargest, thirdLargest = secLargest
-  //else
-  if (!BST) {
-    return temp[2];
-  }
+// function findThird(BST, temp = [0, 0, 0]) {
+//   //if key is greater than largest, largest = key
+//   //if secLargest < largest, secLargest = largest
+//   //if thirdLargest < secLargest, thirdLargest = secLargest
+//   //else
+//   if (!BST) {
+//     return temp[2];
+//   }
 
-  let key = BST.key;
+//   let key = BST.key;
 
-  if (key > temp[0]) {
-    temp[2] = temp[1];
-    temp[1] = temp[0];
-    temp[0] = key;
-  } else if (key > temp[1]) {
-    temp[2] = temp[1];
-    temp[1] = key;
-  } else if (key > temp[2]) {
-    temp[2] = key;
-  }
-  const h1 = findThird(BST.left, temp);
-  const h2 = findThird(BST.right, temp);
+//   if (key > temp[0]) {
+//     temp[2] = temp[1];
+//     temp[1] = temp[0];
+//     temp[0] = key;
+//   } else if (key > temp[1]) {
+//     temp[2] = temp[1];
+//     temp[1] = key;
+//   } else if (key > temp[2]) {
+//     temp[2] = key;
+//   }
+//   const h1 = findThird(BST.left, temp);
+//   const h2 = findThird(BST.right, temp);
 
-  return h1 > h2 ? h1 : h2;
-}
-console.log(findThird(main()));
+//   return h1 > h2 ? h1 : h2;
+// }
+// console.log(findThird(main()));
 
 //8 balanced bst
-function Breadthhh(BST, counter = 0) {
-  if (!BST) {
-    console.log("End of branch reached!");
-    return counter;
-  }
+// function Breadthhh(BST, counter = 0) {
+//   if (!BST) {
+//     console.log("End of branch reached!");
+//     return counter;
+//   }
 
-  const h1 = Breadthhh(BST.left, counter++);
-  const h2 = Breadthhh(BST.right, counter++);
-  console.log(h1, h2);
-  if (h1.counter == h2.counter) {
-    return true;
-  } else if (h1.counter + 1 === h2.counter) {
-    return true;
-  } else if (h2.counter + 1 === h1.counter) {
-    return true;
-  } else return false;
-}
+//   const h1 = Breadthhh(BST.left, counter++);
+//   const h2 = Breadthhh(BST.right, counter++);
+//   console.log(h1, h2);
+//   if (h1.counter == h2.counter) {
+//     return true;
+//   } else if (h1.counter + 1 === h2.counter) {
+//     return true;
+//   } else if (h2.counter + 1 === h1.counter) {
+//     return true;
+//   } else return false;
+// }
 
 //console.log(Breadthhh(main()));
+
+//9
+function compareTrees(arr1, arr2) {
+  for (let i = 0; i < arr1.length; i++) {
+    let success = false;
+    for (let y = 0; y < arr2.length; y++) {
+      if (arr1[i] === arr2[y]) {
+        success = true;
+        break;
+      }
+    }
+    if (!success) {
+      return false;
+    }
+  }
+  return true;
+}
+
+console.log(
+  "Samzies? ",
+  compareTrees([3, 5, 4, 6, 1, 0, 2], [3, 1, 5, 2, 4, 6, 0])
+);
