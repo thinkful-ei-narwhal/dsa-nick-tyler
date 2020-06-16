@@ -5,10 +5,10 @@ const BinarySearchTree = require("./binary-constructor");
 /* 
 
               3
-          /      \
-         1        6
-        /  \     /  \
-       2    4   5    9
+          /      \     
+         1        6      
+        /  \     /  \  
+       2    4   5    9 
                     /
                    7
 
@@ -45,26 +45,26 @@ function main() {
 
 console.log(main());
 
-function main2() {
-  const BST = new BinarySearchTree();
+// function main2() {
+//   const BST = new BinarySearchTree();
 
-  BST.insert("E", 1);
-  BST.insert("A", 2);
-  BST.insert("S", 3);
-  BST.insert("Y", 4);
-  BST.insert("Q", 5);
-  BST.insert("U", 6);
-  BST.insert("E", 7);
-  BST.insert("S", 8);
-  BST.insert("T", 9);
-  BST.insert("I", 10);
-  BST.insert("O", 11);
-  BST.insert("N", 12);
+//   BST.insert("E", 1);
+//   BST.insert("A", 2);
+//   BST.insert("S", 3);
+//   BST.insert("Y", 4);
+//   BST.insert("Q", 5);
+//   BST.insert("U", 6);
+//   BST.insert("E", 7);
+//   BST.insert("S", 8);
+//   BST.insert("T", 9);
+//   BST.insert("I", 10);
+//   BST.insert("O", 11);
+//   BST.insert("N", 12);
 
-  return BST;
-}
+//   return BST;
+// }
 
-console.log(main2());
+// console.log(main2());
 
 //4 What does this program do?
 //This program returns the sum of a parent node and its children
@@ -74,20 +74,53 @@ console.log(main2());
 //running counter, reset after looping back to start
 //if the returned counter is > largest counter you have, replace it
 
-function height(BST, counter = 0) {
+// function height(BST, counter = 0) {
+//   if (!BST) {
+//     console.log("End of branch reached!");
+//     return counter;
+//   }
+
+//   const h1 = height(BST.left, counter++);
+//   const h2 = height(BST.right, counter++);
+
+//   if (h1 > h2) {
+//     return h1;
+//   } else {
+//     return h2;
+//   }
+// }
+
+// console.log(height(main()));
+
+// function Breadthhh(BST, counter = 0) {
+//   if (!BST) {
+//     console.log("End of branch reached!");
+//     return counter;
+//   }
+
+//   const h1 = height(BST.left, counter++);
+//   const h2 = height(BST.right, counter++);
+
+//   if (h1 > h2) {
+//     return h1;
+//   } else {
+//     return h2;
+//   }
+// }
+
+// console.log(Breadthhh(main()));
+
+//8 balanced bst
+function Breadthhh(BST) {
   if (!BST) {
     console.log("End of branch reached!");
-    return counter;
+    return;
   }
 
-  const h1 = height(BST.left, counter++);
-  const h2 = height(BST.right, counter++);
+  console.log("Key", BST.key);
 
-  if (h1 > h2) {
-    return h1;
-  } else {
-    return h2;
-  }
+  Breadthhh(BST.left);
+  Breadthhh(BST.right);
 }
 
-console.log(height(main()));
+console.log(Breadthhh(main()));
