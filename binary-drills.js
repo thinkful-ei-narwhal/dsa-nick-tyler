@@ -111,17 +111,22 @@ console.log(main());
 // console.log(Breadthhh(main()));
 
 //8 balanced bst
-function Breadthhh(BST) {
+function Breadthhh(BST, counter = 0) {
   if (!BST) {
     console.log("End of branch reached!");
-    return;
+    return counter;
   }
 
-  console.log("Key", BST.key);
-
-  Breadthhh(BST.left);
-  Breadthhh(BST.right);
+  const h1 = Breadthhh(BST.left, counter++);
+  const h2 = Breadthhh(BST.right, counter++);
+  console.log(h1, h2);
+  if (h1.counter == h2.counter) {
+    return true;
+  } else if (h1.counter + 1 === h2.counter) {
+    return true;
+  } else if (h2.counter + 1 === h1.counter) {
+    return true;
+  } else return false;
 }
 
 console.log(Breadthhh(main()));
-s++;
