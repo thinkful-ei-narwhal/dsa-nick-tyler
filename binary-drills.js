@@ -180,7 +180,32 @@ function compareTrees(arr1, arr2) {
   return true;
 }
 
-console.log(
-  "Samzies? ",
-  compareTrees([3, 5, 4, 6, 1, 0, 2], [3, 1, 5, 2, 4, 6, 0])
-);
+// console.log(
+//   "Samzies? ",
+//   compareTrees([3, 5, 4, 6, 1, 0, 2], [3, 1, 5, 2, 4, 6, 0])
+// );
+
+//6
+function isItBST(BT) {
+  //BST !duplicate keys
+  //key.left < key
+  //key.right > key
+  if (!BT) {
+    return true;
+  }
+  if (BT.key < BT.key.left) {
+    return false;
+  }
+  if (BT.key > BT.key.right) {
+    return false;
+  }
+
+  const h1 = isItBST(BT.left);
+  const h2 = isItBST(BT.right);
+
+  if (h1 && h2) {
+    return true;
+  } else return false;
+}
+
+console.log(isItBST(main()));
