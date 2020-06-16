@@ -43,7 +43,7 @@ function main() {
   return BST;
 }
 
-console.log(main());
+//console.log(main());
 
 // function main2() {
 //   const BST = new BinarySearchTree();
@@ -70,7 +70,7 @@ console.log(main());
 //This program returns the sum of a parent node and its children
 
 //5 Height of a BST
-// depth-first search using recursion.
+// depth-temp[0] search using recursion.
 //running counter, reset after looping back to start
 //if the returned counter is > largest counter you have, replace it
 
@@ -110,6 +110,38 @@ console.log(main());
 
 // console.log(Breadthhh(main()));
 
+//6
+
+//7
+
+function findThird(BST, temp = [0, 0, 0]) {
+  //if key is greater than largest, largest = key
+  //if secLargest < largest, secLargest = largest
+  //if thirdLargest < secLargest, thirdLargest = secLargest
+  //else
+  if (!BST) {
+    return temp[2];
+  }
+
+  let key = BST.key;
+
+  if (key > temp[0]) {
+    temp[2] = temp[1];
+    temp[1] = temp[0];
+    temp[0] = key;
+  } else if (key > temp[1]) {
+    temp[2] = temp[1];
+    temp[1] = key;
+  } else if (key > temp[2]) {
+    temp[2] = key;
+  }
+  const h1 = findThird(BST.left, temp);
+  const h2 = findThird(BST.right, temp);
+
+  return h1 > h2 ? h1 : h2;
+}
+console.log(findThird(main()));
+
 //8 balanced bst
 function Breadthhh(BST, counter = 0) {
   if (!BST) {
@@ -129,4 +161,4 @@ function Breadthhh(BST, counter = 0) {
   } else return false;
 }
 
-console.log(Breadthhh(main()));
+//console.log(Breadthhh(main()));
